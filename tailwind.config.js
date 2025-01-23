@@ -15,7 +15,9 @@ export default {
       },
       backgroundImage: {
         diagonalGradient:
-          "linear-gradient(125deg, rgba(74,18,240,1) 0%, rgba(130,121,228,1) 50%, rgba(188,232,215,1) 100%);  "
+          "linear-gradient(125deg, rgba(74,18,240,1) 0%, rgba(130,121,228,1) 50%, rgba(188,232,215,1) 100%);  ",
+        grau180_main_cor_qualquer:
+          "linear-gradient(180deg, rgba(34, 34, 34, 1) 0%, rgba(18, 18, 18, 1) 45%);"
       }
     }
   },

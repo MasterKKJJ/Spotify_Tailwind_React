@@ -1,15 +1,16 @@
 import { Library, CircleCheck, Heart } from "lucide-react";
 import { useState } from "react";
-
+import ReactPlayer from "react-player";
+import { Card } from "./components/cards-main";
+import Card_Top_Icon from "./components/cards_top_playlists/Card_Top_Icon";
+import { Card_Top } from "./components/cards_top_playlists";
+import { Balao_Flutuante } from "./components/Balao_Text";
 function App() {
   const [background, setBackground] = useState(
     "linear-gradient(180deg, rgba(34, 34, 34, 1) 0%, rgba(18, 18, 18, 1) 45%)"
   );
 
   const handleMouseEnter = corrgba => {
-    console.log(
-      "linear-gradient(180deg, " + corrgba + " 0%, rgba(18, 18, 18, 1) 30%)"
-    );
     setBackground(
       "linear-gradient(180deg, " + corrgba + " 0%, rgba(18, 18, 18, 1) 30%)"
     );
@@ -45,162 +46,71 @@ function App() {
             style={{ background }}
           >
             <div className="pl-8 pt-3 ">
-              <div className=" flex gap-2 ">
-                {/* Botão "Tudo" */}
-                <button className="rounded-full flex justify-center items-center px-2 py-1 text-black bg-white text-text_xss text hover:bg-white/90 transition-all">
+              <Balao_Flutuante.Root>
+                <Balao_Flutuante.Text classPlus="bg-white text-black">
                   Tudo
-                </button>
-                {/* Botão "Músicas" */}
-                <button className="rounded-full flex justify-center items-center px-2 py-1 text-white bg-white/10  text-text_xss hover:bg-white/20 transition-all">
-                  Músicas
-                </button>
-                {/* Botão "Podcasts" */}
-                <button className="rounded-full flex justify-center items-center px-2 py-1 text-white bg-white/10 text-text_xss hover:bg-white/20 transition-all">
-                  Podcasts
-                </button>
-              </div>
+                </Balao_Flutuante.Text>
+                <Balao_Flutuante.Text>Músicas</Balao_Flutuante.Text>
+                <Balao_Flutuante.Text>Podcasts</Balao_Flutuante.Text>
+              </Balao_Flutuante.Root>
 
               <div className="flex gap-2 mt-4 pb-10">
-                <div
-                  onMouseEnter={() => handleMouseEnter("rgba(60, 85, 76, 0.5)")}
-                  onMouseLeave={handleMouseLeave}
-                  className="w-[188px] transition-all duration-300 bg-cor_componentes_musicas_main  rounded h-[38px] flex items-center"
+                <Card_Top.Root
+                  handleMouseEnter={handleMouseEnter}
+                  handleMouseLeave={handleMouseLeave}
+                  corrgba="rgba(60, 85, 76, 0.5)"
                 >
-                  <div className="bg-diagonalGradient w-[38px] h-full flex items-center justify-center rounded-l ">
-                    <Heart width={16} height={16} />
-                  </div>
-                  <p className="ml-2 text-white font-semibold flex-1 text-[10px]">
-                    Músicas Curtidas
-                  </p>
-                </div>
-                <div
-                  onMouseEnter={() => handleMouseEnter("rgba(52, 39, 88, 0.5)")}
-                  onMouseLeave={handleMouseLeave}
-                  className="w-[188px] bg-cor_componentes_musicas_main  rounded h-[38px] flex items-center"
+                  <Card_Top.Icon icon={<Heart />} />
+                  <Card_Top.Text text="Músicas Favoritas" />
+                </Card_Top.Root>
+
+                <Card_Top.Root
+                  handleMouseEnter={handleMouseEnter}
+                  handleMouseLeave={handleMouseLeave}
+                  corrgba="rgba(52, 39, 88, 0.5)"
                 >
-                  <div className="bg-diagonalGradient w-[38px] h-full flex  items-center justify-center rounded-l ">
-                    <img
-                      className="h-full w-full rounded-l"
-                      src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84b41480116c4785c5bc8234f2"
-                    />
-                  </div>
-                  <p className="ml-2 text-white flex-1 font-semibold text-[10px]">
-                    Pagode - Os Melhores (Anos 90 - 2025)
-                  </p>
-                </div>
-                <div
-                  onMouseEnter={() =>
-                    handleMouseEnter("rgba(138, 117, 150, 0.3)")}
-                  onMouseLeave={handleMouseLeave}
-                  className="w-[188px]  bg-cor_componentes_musicas_main  rounded h-[38px] flex items-center"
+                  <Card_Top.Icon icon="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000da84b41480116c4785c5bc8234f2" />
+                  <Card_Top.Text text="Pagode - Os Melhores (Anos 90 - 2025)" />
+                </Card_Top.Root>
+                <Card_Top.Root
+                  handleMouseEnter={handleMouseEnter}
+                  handleMouseLeave={handleMouseLeave}
+                  corrgba="rgba(138, 117, 150, 0.3)"
                 >
-                  <div className="bg-diagonalGradient w-[38px] h-full flex items-center justify-center rounded-l ">
-                    <img
-                      className="h-full w-full rounded-l"
-                      src="https://i.scdn.co/image/ab67616d00004851c80fe27586c2da910984cb9a"
-                    />
-                  </div>
-                  <p className="ml-2 text-white font-semibold flex-1 text-[10px]">
-                    phonk
-                  </p>
-                </div>
-                <div
-                  onMouseEnter={() => handleMouseEnter("rgba(60, 85, 76, 0.6)")}
-                  onMouseLeave={handleMouseLeave}
-                  className="w-[188px]  bg-cor_componentes_musicas_main  rounded h-[38px] flex items-center"
+                  <Card_Top.Icon icon="https://i.scdn.co/image/ab67616d00004851c80fe27586c2da910984cb9a" />
+                  <Card_Top.Text text="phonk" />
+                </Card_Top.Root>
+                <Card_Top.Root
+                  handleMouseEnter={handleMouseEnter}
+                  handleMouseLeave={handleMouseLeave}
+                  corrgba="rgba(60, 85, 76, 0.6)"
                 >
-                  <div className="bg-diagonalGradient w-[38px] h-full flex items-center justify-center rounded-l ">
-                    <img
-                      className="h-full w-full rounded-l"
-                      src="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c3900bf39038d74b442740542"
-                    />
-                  </div>
-                  <p className="ml-2 text-white font-semibold flex-1 text-[10px]">
-                    25 Days of Christmas
-                  </p>
-                </div>
+                  <Card_Top.Icon icon="https://image-cdn-ak.spotifycdn.com/image/ab67706c0000d72c3900bf39038d74b442740542" />
+                  <Card_Top.Text text="25 Days of Christmas" />
+                </Card_Top.Root>
               </div>
-              <p className="font-bold text-lg mb-3 text-white hover:underline cursor-pointer ">
+              <p className="font-bold text-lg mb-3 text-white hover:underline cursor-pointer  w-max">
                 Feito para Master
               </p>
+
               <section className=" flex flex-row overflow-hidden   max-w-screen-md ">
-                <div className="text-white">
-                  <div>
-                    <div className="rounded-md hover:bg-zinc-600/20 transition-all duration-200 p-2 flex relative flex-col h-[200px] w-[154px] grou">
-                      {/* Contêiner de Hover */}
-                      <div className="rounded-md overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          src="/download.jpg"
-                          alt="Logo"
-                          style={{ filter: "brightness(0.7)" }}
-                        />
-                      </div>
-                      {/* Texto */}
-                      <p className="text-[10px] text-zinc-400 overflow-hidden mt-2">
-                        NLE Chopa, 1nonly, fam0uz e mais
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-white">
-                  <div>
-                    <div className="rounded-md hover:bg-zinc-600/20 transition-all duration-200 p-2 flex relative flex-col h-[200px] w-[154px] grou">
-                      {/* Contêiner de Hover */}
-                      <div className="rounded-md overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          src="/download.jpg"
-                          alt="Logo"
-                          style={{ filter: "brightness(0.7)" }}
-                        />
-                      </div>
-                      {/* Texto */}
-                      <p className="text-[10px] text-zinc-400 overflow-hidden mt-2">
-                        NLE Chopa, 1nonly, fam0uz e mais
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-white">
-                  <div>
-                    <div className="rounded-md hover:bg-zinc-600/20 transition-all duration-200 p-2 flex relative flex-col h-[200px] w-[154px] grou">
-                      {/* Contêiner de Hover */}
-                      <div className="rounded-md overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          src="/download.jpg"
-                          alt="Logo"
-                          style={{ filter: "brightness(0.7)" }}
-                        />
-                      </div>
-                      {/* Texto */}
-                      <p className="text-[10px] text-zinc-400 overflow-hidden mt-2">
-                        NLE Chopa, 1nonly, fam0uz e mais
-                      </p>
-                    </div>
-                  </div>
-                </div>
-                <div className="text-white">
-                  <div>
-                    <div className="rounded-md hover:bg-zinc-600/20 transition-all duration-200 p-2 flex relative flex-col h-[200px] w-[154px] grou">
-                      {/* Contêiner de Hover */}
-                      <div className="rounded-md overflow-hidden">
-                        <img
-                          className="w-full h-full object-cover"
-                          src="/download.jpg"
-                          alt="Logo"
-                          style={{ filter: "brightness(0.7)" }}
-                        />
-                      </div>
-                      {/* Texto */}
-                      <p className="text-[10px] text-zinc-400 overflow-hidden mt-2">
-                        NLE Chopa, 1nonly, fam0uz e mais
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <Card.Root>
+                  <Card.Content>
+                    <Card.Icon src="/download.jpg" alt="Logo" />
+                    <Card.Text titulo="NLE Chopa, 1nonly, fam0uz e mais " />
+                  </Card.Content>
+                </Card.Root>
+                <Card.Root>
+                  <Card.Content>
+                    <Card.Icon src="/download.jpg" alt="Logo" />
+                    <Card.Text titulo="Carlla Cabeçuda" />
+                  </Card.Content>
+                </Card.Root>
               </section>
+
+              <p className="font-bold text-lg mb-3 text-white hover:underline cursor-pointer ">
+                Seus mixes mais ouvidos
+              </p>
             </div>
           </main>
 
@@ -233,7 +143,9 @@ function App() {
                 className="bg-green-500 rounded-full ml-2 "
               />
             </div>
-            <div className="text-white">Player</div>
+            <div className="text-white">
+              <div className="border">Player</div>
+            </div>
             <div className="text-white">Volume</div>
           </div>
         </footer>

@@ -1,10 +1,13 @@
 import React from "react";
 
-const CardTopText = ({ text }) => {
+const CardTopText = ({ text, children }) => {
   return (
-    <p className="ml-2 text-white font-semibold flex-1 text-[10px]">
-      {text}
-    </p>
+    <div>
+      <p className="ml-2 text-white font-semibold  text-[10px]">
+        {text}
+      </p>
+      {children ? children : null}
+    </div>
   );
 };
 

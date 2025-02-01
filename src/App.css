@@ -1,0 +1,44 @@
+/* Barra de rolagem personalizada */
+.scrollbar-custom::-webkit-scrollbar {
+  width: 0px; /* Largura padrão da barra de rolagem */
+
+}
+
+/* Cor de fundo da barra de rolagem */
+.scrollbar-custom::-webkit-scrollbar-track {
+  background: #121212; 
+}
+
+/* Cor do "thumb" da barra de rolagem */
+.scrollbar-custom::-webkit-scrollbar-thumb {
+  background-color: #4e4a4a; 
+
+}
+
+/* Quando o mouse passa sobre o contêiner, a barra de rolagem aumenta */
+.scrollbar-custom-hover:hover::-webkit-scrollbar {
+  width: 8px; /* Largura maior da barra de rolagem quando o mouse passa sobre ela */
+  border-top: 1px solid black;
+  
+}
+
+/* Cor do "thumb" quando o mouse passa sobre a barra */
+.scrollbar-custom-hover:hover::-webkit-scrollbar-thumb {
+  background-color: #3d3b3b; /* Cor do "thumb" quando hover */
+}
+
+/* Efeito de escurecimento no final da lista */
+.fade-bottom {
+  position: relative;
+}
+
+.fade-bottom::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 50px; /* Altura do efeito de escurecimento */
+  background: linear-gradient(to bottom, rgba(18, 18, 18, 0), rgba(18, 18, 18, 1));
+  pointer-events: none; /* Permite interação com os itens abaixo */
+}
